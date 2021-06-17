@@ -45,19 +45,21 @@
       var grades=0
       var numberofcourses=0
       
-      function addgrades(4)
-      function addnumberofcourses (1)
+      function addnumberofcourses (letter)
       {
-        var add=4
-        return 4
-        var add=1
-        return 1
+        numberofcourses++;
+        grades = grades + letter;
       }
       
       function GPA()
       {
-        alert("calculate GPA for all classes")
+        alert("calculate GPA for all classes "+(grades/numberofcourses));
       }
+      addnumberofcourses(2);
+      addnumberofcourses(1);
+      addnumberofcourses(4);
+      addnumberofcourses(3);
+      GPA();
     </script>
     <style>
     </style>
