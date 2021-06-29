@@ -3,18 +3,18 @@
     <script>
       <div class="left" id="blue"></div>
       <em class="middle" name="supercalifragilisticexpialidocius">This text is important!</em>
-      <b name="boldText">I like popsicles and watermelon.</b>
+      <b id="green" name="boldText">I like popsicles and watermelon.</b>
       
       <button onclick="applyStyle()"></button>
       
       function applyStyle()
       {
         people = document.getElementById("blue");
-        people.style.color=""
+        people.style.color="purple"
         monkey = document.getElementByClass("middle");
-        monkey.style.alignment="middle"
+        monkey.style.alignment="right"
         birds = document.getElementByName("boldText");
-        birds.style.emphasis="boldText"
+        birds.style.emphasis="italicText"
       }
     </script>
     <style>
