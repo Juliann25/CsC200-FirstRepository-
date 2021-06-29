@@ -2,18 +2,22 @@
   <head>
     <script>
       <div class="left" id="blue"></div>
-      <em class="middle" name="empasis">This text is important!</em>
-      
+      <em class="middle" name="supercalifragilisticexpialidocius">This text is important!</em>
+      <b name="boldText">I like popsicles and watermelon.</b>
       
       <button onclick="applyStyle()"></button>
       
       function applyStyle()
       {
-        document.getElementById
+        people = document.getElementById("blue");
+        people.style.color=""
+        monkey = document.getElementByClass("middle");
+        monkey.style.alignment="middle"
+        birds = document.getElementByName("boldText");
+        birds.style.emphasis="boldText"
       }
     </script>
     <style>
-      
     </style>
   </head>
   <body>
