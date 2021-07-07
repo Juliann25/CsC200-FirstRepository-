@@ -1,27 +1,34 @@
 <html>
   <head>
     <script>
-      <div class="left" id="blue">Hello!</div>
-      <em class="middle" name="supercalifragilisticexpialidocius">This text is important!
-      </em>
-      <b id="green" name="boldText">I like popsicles and watermelon.</b>
       
-      <button onclick="applyStyle()"></button>
-      
-      function applyStyle()
+      function Start()
       {
-        people = document.getElementById("blue");
+        var people = document.getElementById("blue");
         people.style.color="purple"
-        monkey = document.getElementByClass("middle");
-        monkey.style.alignment="right"
-        birds = document.getElementByName("boldText");
-        birds.style.emphasis="italicText"
+        var monkey = document.getElementsByClass("middle");
+        monkey[0].style.alignment="right"
+        var birds = document.getElementsByName("boldText");
+        birds[0].style.emphasis="italicText"
       }
     </script>
     <style>
     </style>
   </head>
   <body>
+    <div class="left" id="blue">
+      Hello!
+    </div>
+    
+    <em class="middle" name="supercalifragilisticexpialidocius">
+      This text is important!
+    </em>
+    
+    <b id="green" name="boldText">
+      I like popsicles and watermelon.
+    </b>
+     
+    <button onclick="Start()"></button>
   </body>
 </html>
 //All styles will be applied to their assigned element. Original styles will apply first, 
