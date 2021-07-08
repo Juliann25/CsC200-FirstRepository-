@@ -6,13 +6,22 @@
       function confirm()
       {
         //Get the number guessed from id="1".
-        document.getElementById("1").value
+        var guess=document.getElementById("1").value
         //If the guessed number doesn't match the random number picked.
         if(guess != random)
         {
-          //it would be wrong
+          //it would be wrong.
+          alert("incorrect") 
+          //if the number is higher than the random one, it should say "too high".
+          if (guess>random) throw "too high"
+          //if not, it should say "too low".
+          if (guess<random) throw "too low"
         }
-        
+        else//if not
+        {
+          //the guess would be correct.
+          alert("correct")
+        }
       }
       
       function reset()
