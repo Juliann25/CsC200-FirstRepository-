@@ -3,10 +3,8 @@
     <script>
       function changeStyle()
       {
-        var hello = document.getElementById("button");
-        hello.style.color="yellow"
-        hello.style.fontStyle="italic"
-        hello.style.textAlign="middle"
+        document.getElementById("button").value
+        document.getElementsByName("rainbow").value
       }
     </script>
     <style>
@@ -23,6 +21,7 @@
       morbi. In hendrerit gravida rutrum quisque non tellus orci ac auctor. Nullam vehicula
       ipsum a arcu cursus. Sociis natoque penatibus et magnis.
     </p>
-    <input type="radio" id="button" value="Hola" onchange="changeStyle(this.value)"></input>
+    <input type="radio" id="button" value="blue" onchange="changeStyle(this.value)"></input>
+    <input type="radio" id="button" name="rainbow" value="green" onchange="changeStyle(this.value)"></input>
   </body>  
 </html>
