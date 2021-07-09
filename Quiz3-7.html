@@ -5,7 +5,7 @@
       {
         var sky = document.getElementById("button");
         sky.style.color="blue"
-        var grass = document.getElementsByName("rainbow");
+        var grass = document.getElementsByName("rainbow", "latin");
         grass.style.color="red"
       }
     </script>
@@ -14,8 +14,7 @@
     </style>
   </head>
   <body>
-    <p id="latin"><input type="radio" id="button" name="rainbow" onchange="changeStyle">
-    </input><input type="radio" id="button" name="rainbow" onchange="changeStyle"></input>
+    <p name="latin">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
       incididunt ut labore et dolore magna aliqua. Aenean vel elit scelerisque mauris 
       pellentesque pulvinar pellentesque. Donec ac odio tempor orci dapibus. Nec feugiat
@@ -24,5 +23,7 @@
       morbi. In hendrerit gravida rutrum quisque non tellus orci ac auctor. Nullam vehicula
       ipsum a arcu cursus. Sociis natoque penatibus et magnis.<br><br>
     </p>
+    <input type="radio" id="button" name="rainbow" onchange="changeStyle"></input>
+    <input type="radio" id="button" name="rainbow" onchange="changeStyle"></input>
   </body>  
 </html>
