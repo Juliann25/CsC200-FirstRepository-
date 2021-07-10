@@ -3,8 +3,14 @@
     <script>
       function changeStyle()
       {
-        document.getElementById("text").style.color="blue";
-        document.getElementById("text").style.color="red";
+        var sky = document.getElementById("text")
+        sky.style.color="blue"
+      }
+      
+      function changeAgain()
+      {
+        var balloon = document.getElementById("text");
+        balloon.style.color="red"
       }
     </script>
     <style>
@@ -22,6 +28,6 @@
       vehicula ipsum a arcu cursus. Sociis natoque penatibus et magnis.<br><br>
     </p>
     <input type="radio" id="button" name="rainbow" value="dark" onchange="changeStyle(this.value)"></input>
-    <input type="radio" id="button" name="rainbow" value="light" onchange="changeStyle(this.value)"></input>
+    <input type="radio" id="button" name="rainbow" value="light" onchange="changeAgain(this.value)"></input>
   </body>  
 </html>
