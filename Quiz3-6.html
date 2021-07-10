@@ -5,13 +5,16 @@
       function Grow()
       {
         var img = document.createElement("img");
+        
         img.src = "IMG_E5667.JPG";
+        var src = document.getElementById("twoFriends");
       }
     </script>
     <style>
     </style>
   </head>
   <body>
+    <p id="twoFriends"></p>
     <button onclick="myVar = setTimeout(Grow, 5000)">Start</button>
     <button onclick="clearTimeout(myVar)">Stop</button>
   </body>
