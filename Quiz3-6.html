@@ -1,17 +1,8 @@
 <html>
   <head>
     <script>
-      function add_img() 
-      { 
-	var img = document.createElement('img'); 
-        img.src = 'https://media.geeksforgeeks.org/wp-content/uploads/20190529122828/bs21.png';      
-	document.getElementById('body').appendChild(img);
-      }
-      
       function Grow()
       {
-        var img = document.createElement("img");
-        img.src = "IMG_E5667.JPG";
         document.getElementById("twoFriends");
       }
     </script>
@@ -19,8 +10,8 @@
     </style>
   </head>
   <body>
-    <p id="twoFriends"></p>
-    <button onclick="myVar = setTimeout(add_img, 5000)">Start</button>
+    <img src="IMG_E5667.JPG" id="twoFriends">
+    <button onclick="myVar = setTimeout(Grow, 5000)">Start</button>
     <button onclick="clearTimeout(myVar)">Stop</button>
   </body>
 </html>
