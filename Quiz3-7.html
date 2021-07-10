@@ -3,8 +3,8 @@
     <script>
       function changeStyle()
       {
-        var sky = document.getElementById("rainbow").value;
-        sky.style.color="blue"
+        var sky = document.getElementsByName("rainbow").value;
+        sky[0].style.color="blue"
         var balloon = document.getElementById("button").value;
         balloon.style.color="red"
       }
