@@ -1,13 +1,48 @@
 <html>
   <head>
     <script>
+      function ComplexNum(real, imaginary);
+      {
+        let x = Math.abs(real);
+        let y = Math.abs(imaginary);
+        {
+          var f = y;
+          y = x % y;
+          x = f;
+        }
+        this.real = real / x;
+        this.imag = imaginary / x;
+      }
+        
+      ComplexNum.prototype.Add = function(NewComplex)
+      {
+        var newR = this.real * NewComplex.real;
+        var newI = this.imaginary * NewComplex.real;
+        newI += NewComplex.imag * this.real;
+        return new ComplexNum(newR, NewI);
+      }
+      var c1 = new ComplexNum(2,3);
+      var c2 = new ComplexNum(-1,-3);
+      var c3 = c1.Add(c2);
+      
+      ComplexNum.prototype.Subtract = function(NuComplex)
+      {
+        var newR = this.real * NuComplex.real;
+        var newI = this.imaginary * NuComplex.real;
+        newI -= NewComplex.imag * this.real;
+        return new ComplexNum(newR, newI);
+      }
+      var h1 = new ComplexNum(2,3);
+      var h2 = new ComplexNum(7,-9);
+      var h3 = h1.Subtract(h2);
+      var h4 = new ComplexNum(7,-9);
+      var h5 = new ComplexNum(-1,-3);
+      var h6 = h4.Subtract(h5);
       
     </script>
     <style>
-      
     </style>
   </head>
   <body>
-    
   </body>
 </html>
