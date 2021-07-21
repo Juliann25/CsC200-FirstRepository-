@@ -19,7 +19,7 @@
         var newR = this.real * NewComplex.real;
         var newI = this.imaginary * NewComplex.real;
         newI += NewComplex.imag * this.real;
-        return new ComplexNum(newR, NewI);
+        return new ComplexNum(newR, newI);
       }
       var c1 = new ComplexNum(2,3);
       var c2 = new ComplexNum(-1,-3);
