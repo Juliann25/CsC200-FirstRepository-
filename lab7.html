@@ -29,7 +29,7 @@
       {
         var newR = this.real * NuComplex.real;
         var newI = this.imaginary * NuComplex.real;
-        newI -= NewComplex.imag * this.real;
+        newI -= NuComplex.imag * this.real;
         return new ComplexNum(newR, newI);
       }
       var h1 = new ComplexNum(2,3);
