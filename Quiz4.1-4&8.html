@@ -29,11 +29,14 @@
       
       //#3
       function CauseError(apples)
-      {
-        if(isNaN)
+      { 
+        try
         {
-          throw "not a number";
-        } 
+          if(isNaN)
+          {
+            throw "not a number";
+          } 
+        }
       }  
       
       function CatchError(CauseError)
