@@ -6,8 +6,7 @@
         var racket = setInterval(Noise, 5000);
       }
       
-      var identify = Ping = 1;
-      var identify2 = Pong = 2;
+      
       
       function Noise()
       {
@@ -15,6 +14,23 @@
         
         alert("Pong");
       }
+      
+      
+      function CauseError(apples)
+      {
+        if() throw "not a number";
+      }  
+      
+      function CatchError(CauseError)
+      {
+        catch(err)
+        {
+          message.innerHTML = "Input is" + err;
+        }
+      }
+      
+      CauseError(11);
+      CauseError(7);
       
     </script>
     <style>
