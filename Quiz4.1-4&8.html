@@ -1,6 +1,7 @@
 <html>
   <head>
     <script>
+      //#1
       function PingPong()
       {
         var racket = setInterval(Noise, 5000);
@@ -14,7 +15,21 @@
         alert("Pong");
       }
       
+      //#2
+      function Elephant()
       
+      function MakeSound()
+      {
+        alert("Elephants have really big ears, which helps them hear a lot better.");
+      }
+      
+      function GetPicture()
+      {
+        var img = document.createElement("img");
+        img.src = "IMG_3813.JPG";
+      }
+      
+      //#3
       function CauseError(apples)
       {
         if(isNaN)
@@ -25,6 +40,10 @@
       
       function CatchError(CauseError)
       {
+        try
+        {
+          if(isNaN) throw "not a number";
+        }
         catch(err)
         {
           message.innerHTML = "Input is" + err;
@@ -33,6 +52,12 @@
       
       CauseError(11);
       CauseError(7);
+      
+      //#4
+      
+      
+      
+      //#8
       
     </script>
     <style>
