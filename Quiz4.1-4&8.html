@@ -11,7 +11,9 @@
       {
         alert("Ping"); 
         alert("Pong");
-      }
+      }// I wasn't really understanding the instructions and how to do it. I tried
+        //looking at some things online and from our lessons, but I still wasn't 
+        //getting it. 
       
       //#2
       function MakeSound()
@@ -28,13 +30,13 @@
       //#3
       function CauseError(apples)
       { 
-        try
+         try
         {
-          if(isNaN)
-          {
-            throw "not a number";
-          } 
-         catch(err)
+          if(isNaN) throw "not a number";
+        }
+        catch(err)
+        {
+          message.innerHTML = "Input is" + err;
         }
       }  
       
@@ -56,8 +58,26 @@
       //#4
       
       
-      
       //#8
+      function Avg()
+      {
+        static average(array)
+        {
+           var total = 0;
+           var count = 0;
+
+           jQuery.each(array, function(index, value) 
+           {
+              total += value;
+              count++;
+           });
+
+           return total / count;
+        }
+     }
+
+var arry = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+console.log(Avg.average(arry));
       
     </script>
     <style>
