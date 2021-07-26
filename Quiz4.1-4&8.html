@@ -11,9 +11,9 @@
       {
         alert("Ping"); 
         alert("Pong");
-      }// I wasn't really understanding the instructions and how to do it. I tried
-        //looking at some things online and from our lessons, but I still wasn't 
-        //getting it. 
+      }// I wasn't really understanding the instructions for most of the html parts
+        //and how to do it. I tried looking at some online examples and our lessons,
+        //but I still wasn't getting it. 
       
       //#2
       function MakeSound()
@@ -56,7 +56,20 @@
       CauseError(7);
       
       //#4
+      var fieldOfDreams;
       
+      function AddMover()
+      {
+        fieldOfDreams.AddMover();
+      }
+      
+      FieldOfDreams.prototype.AddMover = function()
+      {
+        var move = this.CreateMoverTag();
+        var udt = new Mover(move);
+        this.AddGenericMover(udt);
+        return udt;
+      }
       
       //#8
       function Avg()
