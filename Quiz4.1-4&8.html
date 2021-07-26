@@ -9,9 +9,27 @@
       
       function Noise()
       {
-        alert("Ping"); 
-        alert("Pong");
-      }// I wasn't really understanding the instructions for most of the html parts
+        this.$userMessage = document.getElementById("user-message");
+        this.$authStatus = document.getElementById('ping-status');
+        this.$authStatus.addEventListener('change', event => 
+        {
+          this.checkPing(event.target.value);
+        });
+      }
+        
+      checkPingPong(status) 
+      {
+        if (status === 'ping') 
+        {
+          this.$userMessage.textContent = "Ping!";
+        } 
+        else if (status === "pong") 
+        {
+          this.$userMessage.textContent = "Pong!";
+          this.$userMessage.style.color = "red";
+        }
+      }
+      // I wasn't really understanding the instructions for most of the html parts
         //and how to do it. I tried looking at some online examples and our lessons,
         //but I still wasn't getting it. 
       
