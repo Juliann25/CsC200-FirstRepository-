@@ -3,8 +3,8 @@
     <script>
       var b = document.getElementById("blankCanvas");
       var ctx = b.getContext("2d"); //For some reason, the computer doesn't like 
-                                    //"getContext", so I ran the program in w3schools and 
-                                    //it worked fine. 
+                                    //"getContext", so I ran the program in w3schools 
+                                    //and it worked fine. 
       ctx.fillStyle = "#CCCCFF";
       ctx.fillRect(0, 0, 355, 355);
       
@@ -36,8 +36,19 @@
       
       function location()
       {
-        document.getElementById("click").innerHTML = "Hello World";
+        document.getElementById("click").innerHTML = "Click on (77, 114)";
       }
+      
+      function getDistance(xA, yA, xB, yB)
+      {
+        var xDiff = xA - xB;
+        var yDiff = yA - yB;
+        
+        return Math.sprt(xDiff * xDiff + yDiff * yDiff);
+      }
+      
+      var distance = getDistance(0, 0, 355, 355);
+      alert(distance);
     </script>
     <style>
     </style>
