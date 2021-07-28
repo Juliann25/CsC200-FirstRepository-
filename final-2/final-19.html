@@ -1,20 +1,17 @@
 <html>
   <head>
     <script>
-      (document).ready(function() 
-        {
-          ('button').click(function()
-            {
-              if (('body').hasClass('black')) 
-              {
-               ('body').removeClass('black').addClass('white');
-              }
-              else 
-              {
-                ('body').removeClass('white').addClass('black');
-              }
-            });
-        });
+      function dayTime()
+      {
+        document.bgColor = "#FFFFFF";
+        document.fgColor = "#000000";
+      }
+      
+      function nightTime()
+      {
+        document.bgColor = "#000000";
+        document.fgColor = "#FFFFFF";
+      }
     </script>
     <style>
     </style>
@@ -50,7 +47,7 @@
       Et malesuada fames ac turpis egestas integer eget.
     </p>
     
-    <button onclick="dayTime">Day</button>
-    <button onclick="nightTime">Night</button>
+    <input type="radio" value="light" onchange="dayTime(this.value)">Day</input>
+    <input type="radio" value="dark" onchange="nightTime(this.value)">Night</input>
   </body>
 </html>
