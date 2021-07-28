@@ -1,17 +1,16 @@
 <html>
   <head>
     <script>
-      function dayTime()
-      {
-        document.bgColor = "FFFFFF";
-        document.fgColor = "000000";
-      }
-      
-      function nightTime()
-      {
-        document.bgColor = "000000";
-        document.fgColor = "FFFFFF";
-      }
+$(document).ready(function() {
+    $('button').click(function(){
+        if ($('body').hasClass('black')) {
+            $('body').removeClass('black').addClass('white');
+        }
+        else {
+            $('body').removeClass('white').addClass('black');
+        }
+    });
+});
     </script>
     <style>
     </style>
