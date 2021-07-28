@@ -1,17 +1,50 @@
 <html>
   <head>
     <script>
+      var b = document.getElementById("blankCanvas");
+      var ctx = b.getContext("2d"); //For some reason, the computer doesn't like 
+                                    //"getContext", so I ran the program in w3schools and 
+                                    //it worked fine. 
+      ctx.fillStyle = "#CCCCFF";
+      ctx.fillRect(0, 0, 355, 355);
       
-      var c = document.getElementById("myCanvas");
-      var ctx = c.getContext("2d");
-      ctx.fillStyle = "#FF0000";
-      ctx.fillRect(0, 0, 80, 100);
+      radius = 200
+      rangeX = (0, 2500)
+      rangeY = (0, 2500)
+      qty = 100
+      
+      deltas = set()
+      for x in range(-radius, radius+1):
+          for y in range(-radius, radius+1):
+              if x*x + y*y <= radius*radius:
+                  deltas.add((x,y))
+
+      randPoints = []
+      excluded = set()
+      i = 0
+      while i<qty:
+          x = random.randrange(*rangeX)
+          y = random.randrange(*rangeY)
+          if (x,y) in excluded: continue
+          randPoints.append((x,y))
+          i += 1
+          excluded.update((x+dx, y+dy) for (dx,dy) in deltas)
+      print randPoints
+      
+      var element = document.getElementById("");
+      var listener = element.addEvenListeer('click', function(event){});
+      
+      function location()
+      {
+        document.getElementById("click").innerHTML = "Hello World";
+      }
     </script>
     <style>
     </style>
   </head>
   <body>
     <canvas id="blankCanvas"></canvas>
-    <canvas id="myCanvas"></canvas>
+    <button onclckick = "location()"></button>
+    <p id="click"></p>
   </body>
 </html>
