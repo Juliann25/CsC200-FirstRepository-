@@ -4,20 +4,26 @@
       function dayTime()
       {
         document.bgColor = "#FFFFFF";
-        document.fgColor = "#000000";
+        var daylight = document.getElementById("p1");
+        daylight.style.color="black";
+        var daylight2 = document.getElementById("p2");
+        daylight2.style.color="black";
       }
       
       function nightTime()
       {
         document.bgColor = "#000000";
-        document.fgColor = "#FFFFFF";
+        var twilight = document.getElementById("p1");
+        twilight.style.color="white";
+        var twilight2 = document.getElementById("p2");
+        twilight2.style.color="white";
       }
     </script>
     <style>
     </style>
   </head>
   <body>
-    <p>
+    <p id="p1">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
       incididunt ut labore et dolore magna aliqua. Tellus pellentesque eu tincidunt tortor
       aliquam nulla facilisi cras fermentum. Vestibulum lorem sed risus ultricies. Nunc 
@@ -34,7 +40,7 @@
       purus viverra accumsan. Erat nam at lectus urna duis convallis.
     </p>
     
-    <p>
+    <p id="p2">
       Vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean. Elit scelerisque 
       mauris pellentesque pulvinar pellentesque habitant morbi tristique. Tincidunt vitae 
       semper quis lectus. Accumsan lacus vel facilisis volutpat est. Tincidunt dui ut 
