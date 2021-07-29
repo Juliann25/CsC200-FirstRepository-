@@ -1,112 +1,192 @@
 <html>
-  <head>
-    <script> 
-      var State = function(old) {
+  <head lang="en">
+      <meta charset="UTF-8">
+      <meta name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Tic Tac Toe</title>
+      <link rel="stylesheet" href="style.css">
+    <script src="script.js"> 
+      const statusDisplay = document.querySelector('.game--status');
+      let gameActive = true;
+      let currentPlayer = "X";
+      let gameState = ["", "", "", "", "", "", "", "", ""];
+      
+      const winningMessage = () => `Player ${currentPlayer} has won!`;
+      const drawMessage = () => `Game ended in a draw!`;
+      const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
+      
+      statusDisplay.innerHTML = currentPlayerTurn();
+      function handleCellPlayed() 
+      {
 
-    /*
-     * public : the player who has the turn to player
-     */
-    this.turn = "";
+      }
+      
+      function handlePlayerChange() 
+      {
 
-    /*
-     * public : the number of moves of the AI player
-     */
-    this.oMovesCount = 0;
+      }
+      
+      function handleResultValidation() 
+      {
+        
+      } 
+      
+      function handleCellClick() 
+      {
 
-    /*
-     * public : the result of the game in this State
-     */
-    this.result = "still running";
+      }
+      
+      function handleRestartGame() 
+      {
 
-    /*
-     * public : the board configuration in this state
-     */
-    this.board = [];
-
-    /* Begin Object Construction */
-    if(typeof old !== "undefined") {
-        // if the state is constructed using a copy of another state
-        var len = old.board.length;
-        this.board = new Array(len);
-        for(var itr = 0 ; itr < len ; itr++) {
-            this.board[itr] = old.board[itr];
+      }
+      
+      document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+      document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
+      
+      function handleCellClick(clickedCellEvent) 
+      {
+        const clickedCell = clickedCellEvent.target;
+        const clickedCellIndex = parseInt(
+          clickedCell.getAttribute('data-cell-index')
+         );
+        if (gameState[clickedCellIndex] !== "" || !gameActive) 
+        {
+          return;
         }
-
-        this.oMovesCount = old.oMovesCount;
-        this.result = old.result;
-        this.turn = old.turn;
-    }
-    /* End Object Construction */
-
-    /*
-     * public : advances the turn in a the state
-     */
-    this.advanceTurn = function() {
-        this.turn = this.turn === "X" ? "O" : "X";
-    }
-
-    /*
-     * public function that enumerates the empty cells in state
-     * @return [Array]: indices of all empty cells
-     */
-    this.emptyCells = function() {
-        var indxs = [];
-        for(var itr = 0; itr < 9 ; itr++) {
-            if(this.board[itr] === "E") {
-                indxs.push(itr);
-            }
+        handleCellPlayed(clickedCell, clickedCellIndex);
+        handleResultValidation();
+      }
+      
+      function handleCellPlayed(clickedCell, clickedCellIndex) 
+      {
+        gameState[clickedCellIndex] = currentPlayer;
+        clickedCell.innerHTML = currentPlayer;
+      }
+      
+      const winningConditions = 
+      [
+        [0, 1, 2],
+        [3 , 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+      ];
+      
+      function handleResultValidation() 
+      {
+        let roundWon = false;
+        for (let i = 0; i <= 7; i++) 
+        {
+          const winCondition = winningConditions[i];
+          let a = gameState[winCondition[0]];
+          let b = gameState[winCondition[1]];
+          let c = gameState[winCondition[2]];
+          if (a === '' || b === '' || c === '') 
+          {
+              continue;
+          }
+          if (a === b && b === c) 
+          {
+            roundWon = true;
+            break
+          }
         }
-        return indxs;
-    }
-
-    /*
-     * public  function that checks if the state is a terminal state or not
-     * the state result is updated to reflect the result of the game
-     * @returns [Boolean]: true if it's terminal, false otherwise
-     */
-    this.isTerminal = function() {
-        var B = this.board;
-
-        //check rows
-        for(var i = 0; i <= 6; i = i + 3) {
-            if(B[i] !== "E" && B[i] === B[i + 1] && B[i + 1] == B[i + 2]) {
-                this.result = B[i] + "-won"; //update the state result
-                return true;
-            }
+          if (roundWon)  
+          {
+            statusDisplay.innerHTML = winningMessage();
+            gameActive = false;
+            return;
+          }
         }
-
-        //check columns
-        for(var i = 0; i <= 2 ; i++) {
-            if(B[i] !== "E" && B[i] === B[i + 3] && B[i + 3] === B[i + 6]) {
-                this.result = B[i] + "-won"; //update the state result
-                return true;
-            }
+      
+      const winningConditions = 
+      [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+      ];
+      
+      function handleResultValidation()
+      {
+        let roundWon = false;
+        for (let i = 0; i <= 7; i++) 
+        {
+          const winCondition = winningConditions[i];
+          let a = gameState[winCondition[0]];
+          let b = gameState[winCondition[1]];
+          let c = gameState[winCondition[2]];
+          if (a === '' || b === '' || c === '') 
+          {
+            continue;
+          }
+          if (a === b && b === c) 
+          {
+            roundWon = true;
+             break
+          }
         }
-
-        //check diagonals
-        for(var i = 0, j = 4; i <= 2 ; i = i + 2, j = j - 2) {
-            if(B[i] !== "E" && B[i] == B[i + j] && B[i + j] === B[i + 2*j]) {
-                this.result = B[i] + "-won"; //update the state result
-                return true;
-            }
+        if (roundWon) 
+        {
+          statusDisplay.innerHTML = winningMessage();
+          gameActive = false;
+          return;
         }
-
-        var available = this.emptyCells();
-        if(available.length == 0) {
-            //the game is draw
-            this.result = "draw"; //update the state result
-            return true;
+        
+        let roundDraw = !gameState.includes("");
+        if (roundDraw) 
+        {
+          statusDisplay.innerHTML = drawMessage();
+          gameActive = false;
+          return;
         }
-        else {
-            return false;
+        handlePlayerChange();
+      }
+      
+        function handlePlayerChange() 
+        {
+           currentPlayer = currentPlayer === "X" ? "O" : "X";
+           statusDisplay.innerHTML = currentPlayerTurn();
         }
-    };
-
-};
+        
+      function handleRestartGame() 
+      {
+        gameActive = true;
+        currentPlayer = "X";
+        gameState = ["", "", "", "", "", "", "", "", ""];
+        statusDisplay.innerHTML = currentPlayerTurn();
+        document.querySelectorAll('.cell')
+               .forEach(cell => cell.innerHTML = "");
+      }
     </script>
     <style>
     </style>
   </head>
   <body>
+    <section>
+        <h1 class="game--title">Tic Tac Toe</h1>
+        <div class="game--container">
+            <div data-cell-index="0" class="cell"></div>
+            <div data-cell-index="1" class="cell"></div>
+            <div data-cell-index="2" class="cell"></div>
+            <div data-cell-index="3" class="cell"></div>
+            <div data-cell-index="4" class="cell"></div>
+            <div data-cell-index="5" class="cell"></div>
+            <div data-cell-index="6" class="cell"></div>
+            <div data-cell-index="7" class="cell"></div>
+            <div data-cell-index="8" class="cell"></div>
+        </div>
+        <h2 class="game--status"></h2>
+        <button class="game--restart">Restart Game</button>
+    </section>
   </body>
 </html>
