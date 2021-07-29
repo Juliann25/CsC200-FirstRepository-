@@ -1,7 +1,81 @@
 <html>
   <head>
     <script>
+      function Clock()
+      {
+        EventTarget.call(this);
+      }
       
+      Clock.prototype = EventTarget();
+      Clock.prototype.constructor = Clock;
+      Clock.prototype.timerId = null;
+      
+      Clock.prototype.Start = function(event)
+      {
+        var self = this;
+        this.StartEvent = event;
+        if (!(this.Started))
+        {
+          this.Started = true;
+          this.timerId = setInterval(function(event)                           
+           {
+            self.fire(self.StartEvent);
+          }, 1000);
+        }
+      }
+      
+      Clock.prototype.Stop = function(event)
+      {
+        if (this.Started)
+        {
+          clearInterval(this.timerId);
+          console.log('Clock has stopped ricking');
+          console.log('It ran for' + this.timerId + 'miliseconds);
+          =this.Started = false;
+        }
+      };
+      
+      Clock.prototype.SetAlarm = function(evt)
+      {
+        if (this.Started) 
+        {
+          var self = this;
+          this.evt = evt;
+          setTimeout(function()
+        {
+            self.fire(self.evt);
+        },  self.evt.lapse);
+      }
+        else
+        {
+         throw new Error('clock has not started yet');
+        }    
+      };
+      
+      var newclock = new Clock(); 
+      var tick = 
+      {
+        type:'tick'
+      }
+ 
+      var alarm = 
+      {type:'alarm',
+            lapse:5000,
+        ringtone:'rrrrrrrrrrrrrring.........'
+      };  
+ 
+      newclock.addListener("tick", function()
+      {
+        console.log('tick........tick......tick');
+      });
+ 
+      newclock.addListener("alarm", function(evt)
+      {
+        console.log('Alarm sounding ' + evt.ringtone);
+      });
+ 
+      newclock.Start(tick);
+      newclock.SetAlarm(alarm);
     </script>
     <style>
     </style>
